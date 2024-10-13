@@ -2,6 +2,11 @@ import random
 import os
 
 def ExitGame():
+    """
+    In this function the user is asked if the user wants to play again or not.
+    If the user types again, then the GuessingGameStart function will start and the game will be started again.
+    If the user types exit, then the Nano appstore will be opened.
+    """
     print("Type again, if you want to play again")
     print("Type exit, if you want to stop playing\n")
     Again = "again"
@@ -19,6 +24,13 @@ def ExitGame():
         ExitGame()
 
 def GuessingGameStart():
+    """
+    This is where the game starts.
+    The user has 11 tries to guess the correct number
+    Everytime the user guesses wrong, it will be said if the number that uses guessed is lower or higher then the correct number.
+    If the user loses all of the tries, then the user loses.
+    If the user guesses the right number within 11 tries, then the user wins the game.
+    """
     RandomInt = random.randint(1, 100)
     AttemptsLeft = 11
 
@@ -30,7 +42,7 @@ def GuessingGameStart():
     while True:
         try:
             AnswerUser = int(input())
-        except (ValueError, KeyboardInterrupt):
+        except (ValueError, KeyboardInterrupt): #A value error and keyboard interrupt error exception, because both can occur
             print("\nType in a number please\n")
         else:
             if AnswerUser == RandomInt:
